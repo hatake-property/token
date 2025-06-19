@@ -27,6 +27,13 @@ while true; do
 			# Quit Program
 			break
 			;;
+		[Rr])
+			# Rename File Name
+			echo -n "rename "
+			read new_path
+			mv "$path" "$new_path"
+			path=$new_path
+			;;
 		*)
 			# Reset Cmd
 			cmd=""
