@@ -23,6 +23,11 @@ while true; do
 	read -s -n 1 key
 	cmd+="$key"
 	case "$cmd" in
+		[Gg])
+			# Get File Name
+			echo "get file path"
+			echo "$path"
+			;;
 		[Qq])
 			# Quit Program
 			break
