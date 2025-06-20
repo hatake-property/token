@@ -3,6 +3,8 @@
 path=""
 carret=0
 token=()
+col=$(tput cols)
+row=$(tput lines)
 
 if [ $# -eq 0 ]; then
 	i=1
@@ -66,16 +68,30 @@ while true; do
 	read -s -n 1 key
 	cmd+="$key"
 	case "$cmd" in
+		# Prefix
+		[Gg])
+			# Get ......
+			echo -n "get "
+			;;
+		# Cmd
 		[Ff])
 			# Move Carret to the Left
 			if [ $carret -ne 0 ]; then
 				(( carret-- ))
 			fi
 			;;
-		[Gg])
+		[Gg][Cc])
+			# Get Columns
+			echo "columns: $col"
+			;;
+		[Gg][Pp])
 			# Get File Name
 			echo "get file path"
 			echo "$path"
+			;;
+		[Gg][Rr])
+			# Get Row
+			echo "row: $row"
 			;;
 		[Jj])
 			# Move Carret to the Right
